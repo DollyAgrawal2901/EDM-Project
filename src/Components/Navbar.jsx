@@ -23,7 +23,7 @@ export default function Navbar() {
     <div className="flex justify-around p-[16px] shadow-[0_1px_3px_-2px_rgba(0,0,0,0.5)] items-center xl:py-[12px] xl:px-[50px] lg:py-[12px] lg:px-[30px] md:py-[10px] md:px-[0px]">
       <div className="flex items-center gap-10">
         <img className="xl:w-[40px]" src={logo} alt="" />
-        <p className="text-[#171717] text-[38px] font-semibold xl:text-[25px]">SHOPPER</p>
+        <Link to='/'><p className="text-[#171717] text-[38px] font-semibold xl:text-[25px] cursor-pointer">SHOPPER</p></Link>
       </div>
       <img className="hidden md:block md:w-[30px] md:rotate-[-90deg] md:duration-[0.5s]" onClick={dropdown_toggle} src={nav_dropdown} alt=""/>
       <ul className="flex items-center list-none gap-[50px] text-[#626262] text-[20px] font-medium xl:gap-[30px] xl:text-[16px] lg:gap-[25px] lg:text-[14px] md:hidden md:h-[80px] md:w-[100%] md:absolute md:bg-white md:justify-center md:top-[50px]" ref={menuRef}>
