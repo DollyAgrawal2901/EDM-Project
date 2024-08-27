@@ -8,25 +8,23 @@ import nav_dropdown from './assets/nav_dropdown.png'
 export default function Navbar() {
   const [menu, setMenu] = useState("shop");
   const {getTotalCartItems} = useContext(ShopContext)
-  const menuRef = useRef()
+  // const menuRef = useRef()
 
-  const dropdown_toggle = (e) =>{
-    if (menuRef.current) {
-      menuRef.current.classList.toggle('hidden');
-      e.target.classList.toggle('rotate-90');
-    }
-  };
+  // const dropdown_toggle = (e) =>{
+  //     menuRef.current.classList.toggle('md:flex');
+  //     e.target.classList.toggle('rotate-90');
+  //   };
 
   const Forli =
     "flex flex-col items-center justify-center gap-3 cursor-pointer";
   return (
-    <div className="flex justify-around p-[16px] shadow-[0_1px_3px_-2px_rgba(0,0,0,0.5)] items-center xl:py-[12px] xl:px-[50px] lg:py-[12px] lg:px-[30px] md:py-[10px] md:px-[0px]">
+    <div className="flex justify-around p-[16px] shadow-[0_1px_3px_-2px_rgba(0,0,0,0.5)] items-center">
       <div className="flex items-center gap-10">
-        <img className="xl:w-[40px]" src={logo} alt="" />
-        <Link to='/'><p className="text-[#171717] text-[38px] font-semibold xl:text-[25px] cursor-pointer">SHOPPER</p></Link>
+        <img  src={logo} alt="" />
+        <Link to='/'><p className="text-[#171717] text-[38px] font-semibold cursor-pointer">SHOPPER</p></Link>
       </div>
-      <img className="hidden md:block md:w-[30px] md:rotate-[-90deg] md:duration-[0.5s]" onClick={dropdown_toggle} src={nav_dropdown} alt=""/>
-      <ul className="flex items-center list-none gap-[50px] text-[#626262] text-[20px] font-medium xl:gap-[30px] xl:text-[16px] lg:gap-[25px] lg:text-[14px] md:hidden md:h-[80px] md:w-[100%] md:absolute md:bg-white md:justify-center md:top-[50px]" ref={menuRef}>
+      {/* <button onClick={dropdown_toggle} className="hidden md:block md:w-[30px] md:rotate-[-90deg] md:duration-[0.5s]" ><img src={nav_dropdown} alt=""/></button> */}
+      <ul /*ref={menuRef}*/ className="flex items-center list-none gap-[50px] text-[#626262] text-[20px] font-medium">
         <li
           onClick={() => {
             setMenu("shop");
@@ -77,12 +75,12 @@ export default function Navbar() {
           )}
         </li>
       </ul>
-      <div className="flex items-center gap-[45px] xl:gap-[30px]">
-      <Link to='/login'><button className="w-[157px] h-[58px] outline-none border border-gray-500 rounded-[75px] text-[#515151] text-[20px] font-medium bg-white cursor-pointer active:bg-slate-500 xl:w-[120px] xl:h-[45px] xl:text-[16px] lg:w-[80px] lg:h-[35px] lg:text-[14px]">
+      <div className="flex items-center gap-[45px]">
+      <Link to='/login'><button className="w-[157px] h-[58px] outline-none border border-gray-500 rounded-[75px] text-[#515151] text-[20px] font-medium bg-white cursor-pointer active:bg-slate-500">
           Login
         </button></Link>
-        <Link to='/cart'><img className="lg:w-[30px]" src={cart_icon} alt="" /></Link>
-        <div className="w-[22px] h-[22px] flex items-center justify-center mt-[-35px] ml-[-55px] rounded-[11px] text-[14px] bg-red-400 text-white xl:ml-[-40px] xl:text-[12px] lg:w-[18px] lg:h-[18px]">
+        <Link to='/cart'><img src={cart_icon} alt="" /></Link>
+        <div className="w-[22px] h-[22px] flex items-center justify-center mt-[-35px] ml-[-55px] rounded-[11px] text-[14px] bg-red-400 text-white">
           {getTotalCartItems()}
         </div>
       </div>
