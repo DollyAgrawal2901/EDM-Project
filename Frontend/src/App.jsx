@@ -9,12 +9,16 @@ import Footer from "./Components/Footer";
 import men_banner from './Components/assets/banner_mens.png'
 import women_banner from './Components/assets/banner_women.png'
 import kid_banner from './Components/assets/banner_kids.png'
+import SuccessPage from "./Context/pages/SuccessPage";
+import { useLocation } from "react-router-dom";
 
 function App() {
+  const location = useLocation();
+  const isSuccessPage = location.pathname === '/success';
+
   return (
     <div>
-      <BrowserRouter>
-        <Navbar />
+      {!isSuccessPage && <Navbar />}
         <Routes>
           <Route path='/' element={<Shop />} />
           <Route path='/mens' element={<ShopCategory banner={men_banner} category='men' />} />
@@ -25,10 +29,11 @@ function App() {
           
           <Route path='/cart' element={<Cart />} />
           <Route path='/login' element={<LoginSignup />} />
+          <Route path="/success" element={<SuccessPage />} />
         </Routes>
         <Footer />
-      </BrowserRouter>
-    </div>
+        {!isSuccessPage && <Footer />}
+        </div>
   );
 }
 

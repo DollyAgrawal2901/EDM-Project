@@ -137,8 +137,8 @@ app.post("/create-checkout-session", async (req, res) => {
         quantity: item.quantity,
       })),
       mode: "payment",
-      success_url: "https://your-domain.com/success",
-      cancel_url: "https://your-domain.com/cancel",
+      success_url: "https://localhost:5173/success",
+      cancel_url: "https://localhost:5173/cancel",
     });
 
     res.json({ sessionId: session.id });
