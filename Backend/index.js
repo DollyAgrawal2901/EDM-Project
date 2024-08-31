@@ -1,21 +1,18 @@
-const port = 4000;
+require("dotenv").config();
+const port = process.env.PORT;
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const multer = require("multer");
 const path = require("path");
 const cors = require("cors");
-const stripe = require("stripe")(
-  "sk_test_51Pt6lOP90NDEkZl42v6UZFb4369SBKky9zgnecYP8lYVnWvzzrTCq468lS6J1pJJoSVFxUwJAc7lnB7DSW2NqYQk002hekviPb"
-);
+const stripe = require("stripe")(process.env.STRIP_BACKEND_KEY);
 
 app.use(express.json());
 app.use(cors());
 
 mongoose
-  .connect(
-    "mongodb+srv://dolly2004:LQ5a-bED.s8Rxm_@cluster0.nj8zn.mongodb.net/e-commerce"
-  )
+  .connect(process.env.MONGO_URL)
   .then(() => {
     console.log("Connected to MongoDB");
   })
